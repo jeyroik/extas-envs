@@ -1,0 +1,19 @@
+{
+  "name": "jeyroik/extas-envs",
+  "package_classes": [
+    {
+      "interface": "extas\\interfaces\\envs\\IEnvRepository",
+      "class": "extas\\components\\envs\\EnvRepository"
+    }
+  ],
+  "plugins": [
+    {
+      "class": "extas\\components\\plugins\\PluginInstallEnvs",
+      "stage": "extas.install"
+    },
+    {
+      "class": "extas\\components\\plugins\\installers\\InstallerEnvCommandPlugin",
+      "stage": "extas.installer.command"
+    }
+  ]
+}
