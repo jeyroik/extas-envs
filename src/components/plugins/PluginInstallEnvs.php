@@ -12,9 +12,9 @@ use extas\interfaces\envs\IEnvRepository;
  */
 class PluginInstallEnvs extends PluginInstallDefault
 {
-    protected $selfItemClass = Env::class;
-    protected $selfName = 'env param';
-    protected $selfSection = 'env';
-    protected $selfRepositoryClass = IEnvRepository::class;
-    protected $selfUID = Env::FIELD__NAME;
+    protected string $selfItemClass = Env::class;
+    protected string $selfName = 'env param';
+    protected string $selfSection = 'env';
+    protected string $selfRepositoryClass = IEnvRepository::class;
+    protected string $selfUID = Env::FIELD__NAME;
 }

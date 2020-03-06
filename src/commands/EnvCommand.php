@@ -4,7 +4,6 @@ namespace extas\commands;
 use extas\components\SystemContainer;
 use extas\interfaces\envs\IEnv;
 use extas\interfaces\envs\IEnvRepository;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,11 +14,14 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @package extas\commands
  * @author jeyroik@gmail.com
  */
-class EnvCommand extends Command
+class EnvCommand extends DefaultCommand
 {
     protected const VERSION = '0.1.0';
     protected const OPTION__TEMPLATE_PATH = 'path';
     protected const DEFAULT__PATH = '.env.dist';
+
+    protected string $commandVersion = '0.2.0';
+    protected string $commandTitle = 'Extas env dist generator';
 
     /**
      * Configure the current command.
@@ -50,14 +52,9 @@ class EnvCommand extends Command
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     *
-     * @return int|mixed
-     * @throws
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function dispatch(InputInterface $input, OutputInterface &$output): void
     {
-        $start = microtime(true);
-
         /**
          * @var $repo IEnvRepository
          * @var $envParams IEnv[]
@@ -78,10 +75,5 @@ class EnvCommand extends Command
         $output->writeln([
             '<info>Env template generating finished. See ' . $path . '</info>'
         ]);
-
-        $end = microtime(true) - $start;
-        $output->writeln(['<info>Finished in ' . $end . ' s.</info>']);
-
-        return 0;
     }
 }

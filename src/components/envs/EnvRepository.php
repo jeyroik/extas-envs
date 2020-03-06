@@ -12,9 +12,9 @@ use extas\interfaces\envs\IEnvRepository;
  */
 class EnvRepository extends Repository implements IEnvRepository
 {
-    protected $idAs = '';
-    protected $scope = 'extas';
-    protected $pk = Env::FIELD__NAME;
-    protected $name = 'envs';
-    protected $itemClass = Env::class;
+    protected string $idAs = '';
+    protected string $scope = 'extas';
+    protected string $pk = Env::FIELD__NAME;
+    protected string $name = 'envs';
+    protected string $itemClass = Env::class;
 }

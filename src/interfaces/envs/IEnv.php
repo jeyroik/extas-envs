@@ -14,5 +14,5 @@ use extas\interfaces\IItem;
  */
 interface IEnv extends IItem, IHasName, IHasValue, IHasDescription
 {
-    const SUBJECT = 'extas.env';
+    public const SUBJECT = 'extas.env';
 }
