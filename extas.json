@@ -1,5 +1,5 @@
 {
-  "name": "jeyroik/extas-envs",
+  "name": "extas/envs",
   "package_classes": [
     {
       "interface": "extas\\interfaces\\envs\\IEnvRepository",
