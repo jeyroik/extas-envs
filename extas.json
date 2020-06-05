@@ -7,6 +7,14 @@
       "class": "extas\\components\\envs\\EnvRepository"
     }
   ],
+  "env": [
+    {
+      "name": "example",
+      "value": "yes.it.is",
+      "title": "Example",
+      "description": "This is example env parameter"
+    }
+  ],
   "plugins": [
     {
       "class": "extas\\components\\plugins\\init\\InitEnvs",
