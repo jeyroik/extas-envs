@@ -3,7 +3,8 @@
   "description": "Extas envs package",
   "require": {
     "jeyroik/extas-base": "2.*",
-    "jeyroik/extas-installer": "2.*"
+    "jeyroik/extas-foundation": "5.*",
+    "jeyroik/extas-commands-options": "0.*"
   },
   "autoload": {
     "psr-4": {

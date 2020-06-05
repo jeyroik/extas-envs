@@ -1,6 +1,7 @@
 <?php
 namespace extas\commands;
 
+use extas\components\options\TConfigure;
 use extas\components\SystemContainer;
 use extas\interfaces\envs\IEnv;
 use extas\interfaces\envs\IEnvRepository;
@@ -16,6 +17,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class EnvCommand extends DefaultCommand
 {
+    use TConfigure;
+
     protected const VERSION = '0.1.0';
     protected const OPTION__TEMPLATE_PATH = 'path';
     protected const DEFAULT__PATH = '.env.dist';
@@ -29,15 +32,9 @@ class EnvCommand extends DefaultCommand
     protected function configure()
     {
         $this
-            // the name of the command (the part after "bin/console")
             ->setName('env')
             ->setAliases([])
-
-            // the short description shown while running "php bin/console list"
             ->setDescription('Generate .env template according to extas packages.')
-
-            // the full command description shown when running the command with
-            // the "--help" option
             ->setHelp('This command allows you to generate .env template file.')
             ->addOption(
                 static::OPTION__TEMPLATE_PATH,
@@ -47,6 +44,8 @@ class EnvCommand extends DefaultCommand
                 static::DEFAULT__PATH
             )
         ;
+
+        $this->configureWithOptions('extas-env', [static::OPTION__TEMPLATE_PATH => true]);
     }
 
     /**

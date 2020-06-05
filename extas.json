@@ -1,19 +1,32 @@
 {
   "name": "extas/envs",
+  "installer_version": 3,
   "package_classes": [
     {
-      "interface": "extas\\interfaces\\envs\\IEnvRepository",
+      "interface": "envRepository",
       "class": "extas\\components\\envs\\EnvRepository"
     }
   ],
   "plugins": [
     {
-      "class": "extas\\components\\plugins\\PluginInstallEnvs",
-      "stage": "extas.install"
+      "class": "extas\\components\\plugins\\init\\InitEnvs",
+      "stage": "extas.init.section.env"
+    },
+    {
+      "class": "extas\\components\\plugins\\uninstall\\UninstallEnvs",
+      "stage": "extas.uninstall.section.env"
     },
     {
       "class": "extas\\components\\plugins\\installers\\InstallerEnvCommandPlugin",
       "stage": "extas.installer.command"
+    }
+  ],
+  "extensions": [
+    {
+      "class": "extas\\components\\extensions\\ExtensionRepositoryGet",
+      "interface": "extas\\interfaces\\extensions\\IExtensionRepositoryGet",
+      "subject": "*",
+      "methods": ["envRepository"]
     }
   ]
 }

@@ -1,20 +1,19 @@
 <?php
-namespace extas\components\plugins;
+namespace extas\components\plugins\uninstall;
 
 use extas\components\envs\Env;
-use extas\interfaces\envs\IEnvRepository;
 
 /**
- * Class PluginInstallEnvs
+ * Class UninstallEnvs
  *
- * @package extas\components\plugins
+ * @package extas\components\plugins\uninstall
  * @author jeyroik@gmail.com
  */
-class PluginInstallEnvs extends PluginInstallDefault
+class UninstallEnvs extends UninstallSection
 {
     protected string $selfItemClass = Env::class;
     protected string $selfName = 'env param';
     protected string $selfSection = 'env';
-    protected string $selfRepositoryClass = IEnvRepository::class;
+    protected string $selfRepositoryClass = 'envRepository';
     protected string $selfUID = Env::FIELD__NAME;
 }
